@@ -7,7 +7,6 @@
             </div>
             <div class="text-subtitle-1 text-medium-emphasis">Email</div>
 
-
             <v-text-field density="compact" placeholder="Nhập email" variant="outlined"></v-text-field>
 
             <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
