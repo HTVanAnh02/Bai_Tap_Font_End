@@ -2,7 +2,7 @@
     <div>
         <v-card class="mx-auto pa-12 pb-8 my-6" variant="flat" max-width="500" rounded="lg">
             <v-img class="mx-auto my-6" max-width="100" src="@/assets/img/ttlab-logo.svg"></v-img>
-            <div class="text-h4 text-center">
+            <div class="text-h4 text-center" style="" >
                 Đăng nhập
             </div>
             <div class="text-subtitle-1 text-medium-emphasis">Email</div>

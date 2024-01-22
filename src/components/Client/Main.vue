@@ -93,15 +93,15 @@
           class="flex-grow-1"
           style="object-fit: cover"
         ></v-img>
-        <v-card-text class="mt-n4 text-left" style="font-size: 16px">
+        <v-card-text class="mt-n4 text-left" style="font-size: 20px">
           {{ mypham.title }}
         </v-card-text>
         <v-card-text class="mt-n4 text-left">
           <v-card-item>
-            <strong> ${{ mypham.price }} </strong>
+            <strong style="font-size: 25px;"> ${{ mypham.price }} </strong>
           </v-card-item>
         </v-card-text>
-        <v-card-text class="mt-n4 text-left">
+        <v-card-text class="mt-n4 text-left" style="font-size: 20px">
           {{ mypham.reviews }}
         </v-card-text>
         <v-card-action>

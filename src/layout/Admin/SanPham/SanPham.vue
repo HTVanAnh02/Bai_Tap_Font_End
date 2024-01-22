@@ -1,121 +1,106 @@
 <template>
-  <div>
-    <v-row class="mt-3">
-      <v-text-field placeholder="Tìm Kiếm" style="max-width: 400px">
-        <v-icon right>mdi-magnify</v-icon>
-      </v-text-field>
-      <v-spacer></v-spacer>
-      <v-btn color="primary" @click="(dialog = true), (currentData = '')">
-        Tạo Mới
-        <v-icon>mdi mdi-plus</v-icon>
-      </v-btn>
+  <v-container>
+    <v-row>
+      <v-col cols="3">
+        <v-text-field
+          style="background-color: white"
+          density="compact"
+          variant="outlined"
+          label="Tìm kiếm"
+          append-inner-icon="mdi mdi-magnify"
+          single-line
+          hide-details
+          class="mr-2"
+        ></v-text-field>
+      </v-col>
+      <v-col cols="9" class="text-right">
+        <v-btn
+          @click="showDialog = true"
+          color="primary"
+          prepend-icon="mdi mdi-plus"
+          class="text-uppercase"
+          >Thêm</v-btn
+        >
+      </v-col>
     </v-row>
-    <v-row class="mt-8">
-      <v-col>
+    <v-row>
+      <v-col cols="12">
         <v-card>
-          <v-table>
+          <v-table density="compact">
             <thead>
               <tr>
-                <th class="text-center">STT</th>
-                <th class="text-center">Tên Sản Phẩm</th>
-                <th class="text-center">Giá</th>
-                <th class="text-center">Số Lượng</th>
-                <th class="text-center">Mô tả</th>
-                <th class="text-center">Ảnh</th>
-                <th class="text-center">Hành động</th>
+                <th class="text-left">Tên sản phẩm</th>
+                <th class="text-left">Giá</th>
+                <th class="text-left">Số lượng</th>
+                <th class="text-left">Mô tả</th>
+                <th class="text-left">Ảnh</th>
+                <th class="text-center">Hành Động</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in datas" :key="index">
-                <td class="text-center">{{ index + 1 }}</td>
-                <td class="text-center">{{ item.TenSanPham }}</td>
-                <td class="text-center">{{ item.Gia }}</td>
-                <td class="text-center">{{ item.SoLuong }}</td>
-                <td class="text-center">{{ item.MoTa }}</td>
-                <td class="text-center">
-                  <img
-                    src="`${{ item.AnhSanPham }}`"
-                    style="width: 50px; height: 50px"
-                  />
+              <tr v-for="i in 10" :key="i">
+                <td>Son dưỡng {{ i }}</td>
+                <td>$49.000</td>
+                <td>100</td>
+                <td>Son dưỡng</td>
+                <td>
+                  <v-img
+                    width="60"
+                    height="50"
+                    src="@/assets/img/anh.jpg"
+                  ></v-img>
                 </td>
                 <td class="text-center">
-                  <v-btn
-                    icon
-                    color="green"
-                    size="small"
-                    @click="(dialog = true), (currentData = item)"
+                  <v-btn variant="text"><v-icon>mdi-pencil</v-icon></v-btn>
+                  <v-btn variant="text"
+                    ><v-icon>mdi-trash-can-outline</v-icon></v-btn
                   >
-                    <v-icon>mdi-pencil</v-icon>
-                  </v-btn>
-                  <v-btn icon color="red" size="small">
-                    <v-icon>mdi-trash-can-outline</v-icon>
-                  </v-btn>
                 </td>
               </tr>
             </tbody>
           </v-table>
-          <v-row
-            class="ma-8 d-flex flex-row justify-content-center"
-            style="border-bottom: 1px solid #ccc"
-          >
-          <v-cols col>
-            <v-text style="color: rgb(173, 170, 170);">
-            Showing
-          </v-text>
-            <v-select class="mt-5 px-10" label="10" style="width: 50px">
-              <v-option value="name">Name</v-option>
-            </v-select>
-            <v-text style="color: rgb(173, 170, 170);">
-            Of 50
-          </v-text>
-          </v-cols>
-  
-            <v-pagination
-              prev-icon="mdi-menu-left"
-              next-icon="mdi-menu-right"
-              class="mb-4 align-self-center"
-              :length="5"
-              v-model="currentPage"
-            ></v-pagination>
+          <v-row class="ma-2">
+            <v-col cols="8">
+              <v-row>
+                <p class="mt-5 opacity">Showing</p>
+                <v-col cols="2">
+                  <v-select
+                    density="compact"
+                    :items="['10', '20', '25', '30', 'All']"
+                    variant="outlined"
+                  ></v-select>
+                </v-col>
+                <p class="mt-5 opacity">of 50</p>
+              </v-row>
+            </v-col>
+            <v-col cols="4" class="text-right">
+              <v-pagination
+                variant="text"
+                density="compact"
+                :length="10"
+              ></v-pagination>
+            </v-col>
           </v-row>
         </v-card>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
+  <Dialog v-model="showDialog" />
 </template>
-      
-    
-  <!-- <script>
+<script>
+import Dialog from "@/layout/Admin/SanPham/Dialog.vue";
 export default {
   name: "SanPhamView",
   data() {
-   
     return {
- 
-      dialogloading: false,
-      currentPage: 1,
-      itemsPerPage: 5,
+      drawer: true,
+      rail: true,
+      showDialog: false,
     };
   },
-};
-</script> -->
-<script>
-export default {
-  name: "SanPhamView",
-
-  data: () => ({
-    datas: [
-      {
-        TenSanPham: "Sản Phẩm 1",
-        Gia: "$45.59",
-        SoLuong: 45,
-        MoTa: "One string Bonsai description",
-        AnhSanPham: "@/assets/img/anh.jpg",
-      },
-    ],
-    currentPage: 1,
-    itemsPerPage: 5,
-  }),
+  components: {
+    Dialog,
+  },
 };
 </script>
   <style></style>

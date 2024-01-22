@@ -1,6 +1,5 @@
 <template>
   <v-app-bar>
-    <v-text variant="text">Danh sách sản phẩm</v-text>
     <v-spacer></v-spacer>
     <v-btn variant="text" icon @click="bellClick">
       <v-badge content="9+" color="error">
