@@ -98,21 +98,31 @@
         </v-card-text>
         <v-card-text class="mt-n4 text-left">
           <v-card-item>
-            <strong style="font-size: 25px;"> ${{ mypham.price }} </strong>
+            <strong style="font-size: 25px"> ${{ mypham.price }} </strong>
           </v-card-item>
         </v-card-text>
         <v-card-text class="mt-n4 text-left" style="font-size: 20px">
           {{ mypham.reviews }}
         </v-card-text>
-        <v-card-action>
-          <v-rating :model-value="4.5" :size="20" color="yellow-darken-3">
-          </v-rating>
-          {{ mypham.sao }}
-          <v-btn class="mb-2" size="large" color="primary" variant="outlined">
-            <v-icon>mdi-heart-outline</v-icon>
-            Watch
-          </v-btn>
-        </v-card-action>
+        <v-card-actions>
+          <v-rating
+            half-increments
+            hover
+            readonly
+            model-value="3"
+            :size="24"
+            color="yellow-darken-3"
+            class="mb-1 mr-3"
+          ></v-rating>
+          4.5
+          <v-spacer></v-spacer>
+          <v-btn
+          prepend-icon="mdi-heart-outline"
+            variant="outlined"
+            color="primary">
+            Watch</v-btn
+          >
+        </v-card-actions>
       </v-card>
     </v-col>
   </v-row>
