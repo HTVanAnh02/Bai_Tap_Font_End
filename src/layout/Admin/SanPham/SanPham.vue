@@ -19,7 +19,7 @@
           color="primary"
           prepend-icon="mdi mdi-plus"
           class="text-uppercase"
-          >Thêm</v-btn
+          >Tạo Mới</v-btn
         >
       </v-col>
     </v-row>

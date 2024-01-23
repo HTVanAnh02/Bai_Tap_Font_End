@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="500px" >
+  <v-dialog max-width="500px">
     <v-card>
       <v-card-title style="font-weight: bold">
         <h4>Tạo mới sản phẩm</h4>
@@ -97,6 +97,6 @@
 <script>
 export default {
   name: "DialogProduct",
-    };
+};
 </script>
 <style></style>

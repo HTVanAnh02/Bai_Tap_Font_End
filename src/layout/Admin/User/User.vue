@@ -19,7 +19,7 @@
           color="primary"
           prepend-icon="mdi mdi-plus"
           class="text-uppercase"
-          >Thêm</v-btn
+          >Tạo Mới</v-btn
         >
       </v-col>
     </v-row>
@@ -85,12 +85,23 @@
       </v-col>
     </v-row>
   </v-container>
+  <Dialog v-model="showDialog" />
 </template>
 
 <script>
+import Dialog from "@/layout/Admin/User/Dialog.vue";
 export default {
   name: "UserView",
-
+  data() {
+    return {
+      drawer: true,
+      rail: true,
+      showDialog: false,
+    };
+  },
+  components: {
+    Dialog,
+  },
     
 };
 </script>
