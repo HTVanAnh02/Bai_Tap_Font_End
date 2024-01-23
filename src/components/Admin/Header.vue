@@ -1,17 +1,28 @@
 <template>
-  <v-app-bar>
-    <v-spacer></v-spacer>
-    <v-btn variant="text" icon @click="bellClick">
-      <v-badge content="9+" color="error">
-        <v-icon>mdi-bell</v-icon>
+  <v-app-bar :elevation="0" rounded scroll-behavior="elevate">
+    <v-app-bar-title class="font-weight-bold ma-8 text-h5"
+      >{{$store.state.title }}</v-app-bar-title>
+    <template v-slot:append>
+      <v-badge content="6" color="red" class="ma-4">
+        <v-icon icon="mdi-bell-outline"></v-icon>
       </v-badge>
-    </v-btn>
-  <v-avatar>
-    <v-img class="mx-auto my-6" max-width="100" src="@/assets/img/anh.jpg"></v-img>
-  </v-avatar>
+      <div style="position: relative; height: auto" class="mr-5">
+        <v-avatar>
+          <v-img
+            class="mx-auto my-6"
+            max-width="100"
+            src="@/assets/img/anh.jpg"
+          ></v-img>
+        </v-avatar>
+        <v-badge
+          dot
+          color="green"
+          style="position: absolute; bottom: 8px"
+        ></v-badge>
+      </div>
+    </template>
   </v-app-bar>
 </template>
-    
 <script>
 export default {
   name: "HeaderView",

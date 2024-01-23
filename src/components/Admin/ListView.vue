@@ -15,7 +15,8 @@
     <v-list>
       <v-list-subheader>Quản lý sản phẩm</v-list-subheader>
       <v-list-item
-        v-for="(item, i) in links"
+      v-for="(item, i) in links"
+      @click="action(item.title)"
         :key="i"
         :to="item.link"
         color="primary"
@@ -30,16 +31,23 @@
 </template>
   
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: "ListView",
   data() {
     return {
       links: [
-        { icon: " mdi-newspaper", text: "Sản phẩm", link: "/admin/SanPham" },
-        { icon: "mdi-account-multiple", text: "User", link: "/admin/User" },
+        { icon: " mdi-newspaper", text: "Sản phẩm", link: "/admin/SanPham",title:"Danh sách sản phẩm"},
+        { icon: "mdi-account-multiple", text: "User", link: "/admin/User",title:"Danh sách người dùng"},
       ],
     };
   },
+  methods:{
+    ...mapActions(['actionstitle']),
+    action(item){
+      this.actionstitle(item)
+    }
+  }
 };
 </script>
   
