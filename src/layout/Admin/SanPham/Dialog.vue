@@ -93,10 +93,26 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+  <!-- <div id="app">
+    <form novalidate>
+      <input type="email" name="email" />
+      <button>Sign up for newsletter</button>
+    </form>
+  </div> -->
 </template>
 <script>
+
 export default {
   name: "DialogProduct",
+  // components: {
+  //   Form,
+  //   Field,
+  // },
+  // methods: {
+  //   onSubmit() {
+  //     console.log('Submitting :(');
+  //   },
+  // },
 };
 </script>
 <style></style>

@@ -1,18 +1,15 @@
 <template>
-  <Main />
+  <trang-chu/>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
 
 // Components
-import Main from '../components/Client/Main.vue';
-
-export default defineComponent({
+import TrangChu from '../layout/Client/TrangChu.vue';
+export default({
   name: 'HomeView',
-
   components: {
-    Main,
+    TrangChu,
   },
 });
 </script>

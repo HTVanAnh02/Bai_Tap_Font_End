@@ -10,7 +10,9 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
+    "vee-validate": "^4.12.4",
     "vue": "^3.2.13",
+    "vue-responsive-components": "^0.2.3",
     "vue-router": "^4.0.3",
     "vuetify": "^3.0.0-beta.0",
     "vuex": "^4.0.0",
