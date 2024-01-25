@@ -1,122 +1,60 @@
 <template>
   <div>
     <div class="py-6 px-6">
-      <v-row>
-        <v-col cols="4">
-          <v-row>
-            <v-select
-              class="ma-2"
-              label="ProdcutName"
-              :items="['A-Z', 'Z-A']"
-              v-model="selectedSortName"
-              @change="applyFilters"
-              density="compact"
-              variant="outlined"
-            ></v-select>
-
-            <v-select
-              class="ma-2"
-              label="Price"
-              :items="['Low High', 'High Low']"
-              v-model="selectedSortPrice"
-              @change="applyFilters"
-              density="compact"
-              variant="outlined"
-            ></v-select>
-
-            <v-select
-              class="ma-2"
-              label="Description"
-              :items="['A-Z', 'Z-A']"
-              v-model="selectedSortDescription"
-              @change="applyFilters"
-              density="compact"
-              variant="outlined"
-            ></v-select>
-          </v-row>
+      <v-row class="">
+        <v-col cols="12" sm="12" md="6" lg="2">
+          <v-select density="compact" label="Sort by"
+            :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']" variant="outlined"></v-select>
         </v-col>
-        <v-spacer></v-spacer>
-
-        <v-col cols="5">
-          <v-row>
-            <v-btn
-              class="text-capitalize mt-2"
-              variant="text"
-              size="large"
-              style="background-color: #ebf2ff; font-size: 14px"
-              >Show all</v-btn
-            >
-            <v-btn
-              class="text-capitalize mt-2"
-              elevation="2"
-              size="large"
-              style="color: #2264d1; font-size: 14px"
-              >Auction</v-btn
-            >
-            <v-btn
-              class="text-capitalize mt-2"
-              variant="text"
-              size="large"
-              style="background-color: #ebf2ff; font-size: 14px"
-              >But now</v-btn
-            >
-            <v-spacer></v-spacer>
-            <v-btn
-              class="mt-2"
-              variant="text"
-              size="large"
-              style="background-color: #ebf2ff"
-            >
-              <v-icon>mdi-menu</v-icon>
-            </v-btn>
-            <v-btn class="mt-2" size="large">
-              <v-icon>mdi-microsoft-windows</v-icon>
-            </v-btn>
-          </v-row>
+        <v-col cols="12" sm="12" md="6" lg="2">
+          <v-select density="compact" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+            variant="outlined"></v-select>
+        </v-col>
+        <v-col cols="12" sm="12" md="6" lg="2">
+          <v-select density="compact" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+            variant="outlined"></v-select>
+        </v-col>
+        <v-col cols="12" sm="12" md="6" lg="6" class="text-right">
+          <v-btn style="background-color: #bbccf6;color:#4d4d50" class="rounded-1 text-capitalize" variant="tonal">
+            Show all
+          </v-btn>
+          <v-btn style="font-weight: bold;color: #2264D1;" bg-color="white" class="rounded-1 text-capitalize"
+            variant="elevated">
+            Action
+          </v-btn>
+          <v-btn style="background-color: #bbccf6;color:#4d4d50" class="rounded-1 text-capitalize" variant="tonal">
+            Buy now
+          </v-btn>
+          <v-btn style="background-color: #adc4fe" class="ml-5" ariant="tonal">
+            <v-icon>mdi mdi-menu</v-icon>
+          </v-btn>
+          <v-btn class="mr-5" variant="elevated">
+            <v-icon style="color: #0c5bda;">mdi mdi-microsoft-windows</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </div>
-
     <div>
       <v-row class="px-6">
         <v-chip-group>
-          <h3
-            class="ma-2 font-weight-bold"
-            style="font-size: 14px; color: #19191d"
-          >
+          <h3 class="ma-2 font-weight-bold mt-3" style="font-size: 14px; color: #19191d">
             Releted
           </h3>
-          <v-chip size="large" style="font-size: 14px"
-            >worldwide shipping</v-chip
-          >
+          <v-chip size="large" style="font-size: 14px">worldwide shipping</v-chip>
           <v-chip size="large" style="font-size: 14px">under $50</v-chip>
           <v-chip size="large" style="font-size: 14px">kitten</v-chip>
           <v-chip size="large" style="font-size: 14px">plastic plugs</v-chip>
           <v-chip size="large" style="font-size: 14px">pucker shoes</v-chip>
-          <v-chip size="large" style="font-size: 14px"
-            >vintage typewriter</v-chip
-          >
+          <v-chip size="large" style="font-size: 14px">vintage typewriter</v-chip>
         </v-chip-group>
       </v-row>
     </div>
   </div>
   <v-row>
-    <v-col cols="12" sm="3" v-for="(mypham, i) in myphams" :key="i">
+    <v-col cols="12" sm="12" md="6" lg="3" v-for="(mypham, i) in myphams" :key="i">
       <v-card height="472px" with="258px" align="center" variant="flat" hover>
-        <v-img
-          :src="mypham.image"
-          width="227"
-          height="224"
-          contain
-          class="flex-grow-1"
-          style="object-fit: cover"
-        ></v-img>
-        <v-card-text
-          class="mt-n4 text-left"
-          style="font-size: 16px; color: #19191d"
-          height="226px"
-          with="74px"
-        >
+        <v-img :src="mypham.image" width="227" height="224" contain class="flex-grow-1" style="object-fit: cover"></v-img>
+        <v-card-text class="mt-n4 text-left" style="font-size: 16px; color: #19191d" height="226px" with="74px">
           {{ mypham.title }}
         </v-card-text>
         <v-card-text class="mt-n4 text-left" height="226px" with="36px">
@@ -124,33 +62,15 @@
             <strong style="font-size: 24px"> ${{ mypham.price }} </strong>
           </v-card-item>
         </v-card-text>
-        <v-card-text
-          class="mt-n4 text-left"
-          style="font-size: 14px; color: #787885"
-          height="226px"
-          width="21px"
-        >
+        <v-card-text class="mt-n4 text-left" style="font-size: 14px; color: #787885" height="226px" width="21px">
           {{ mypham.reviews }}
         </v-card-text>
         <v-card-actions>
-          <v-rating
-            half-increments
-            hover
-            readonly
-            model-value="3"
-            :size="20"
-            color="yellow-darken-3"
-            class="mb-1 mr-3"
-          ></v-rating>
+          <v-rating half-increments hover readonly model-value="3" :size="20" color="yellow-darken-3"
+            class="mb-1 mr-3"></v-rating>
           4.5
           <v-spacer></v-spacer>
-          <v-btn
-            prepend-icon="mdi-heart-outline"
-            variant="outlined"
-            class="text-capitalize"
-            color="primary"
-            >Watch</v-btn
-          >
+          <v-btn prepend-icon="mdi-heart-outline" variant="outlined" class="text-capitalize" color="primary">Watch</v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -158,7 +78,7 @@
   <v-space></v-space>
   <FooterClient class="ma-10" />
 </template>
-  <script>
+<script>
 import FooterClient from "../../components/Client/FooterClient.vue";
 export default {
   name: "TrangChu",
@@ -325,11 +245,9 @@ export default {
           b.description.localeCompare(a.description)
         );
       }
-
       console.log(filteredProducts);
     },
   },
 };
 </script>
-  
   
