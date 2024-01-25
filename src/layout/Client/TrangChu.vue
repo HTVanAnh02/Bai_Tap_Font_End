@@ -156,7 +156,7 @@
     </v-col>
   </v-row>
   <v-space></v-space>
-  <FooterClient class="ma-10"/>
+  <FooterClient class="ma-10" />
 </template>
   <script>
 import FooterClient from "../../components/Client/FooterClient.vue";
@@ -168,10 +168,10 @@ export default {
   data() {
     return {
       myphams: [
-      {
+        {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112660/SW1hZ2VfcmVkdmxp/preview",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvKhndAo7d9ES6mwh8UBPF2CNx5VhmCWJATP3I6sCQHf68Fgng",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -181,7 +181,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112586/SW1hZ2VfMV9zaGV2ZmM=/preview",
+            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR1L1bo1AAurzmJXKQL_O_bHYAf9OWST8JY4FO9TVFX6-27EFBW",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -191,7 +191,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112568/SW1hZ2VfMl9vZ2hrMG8=/preview",
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOvXjSz7HW3IajCyvzFZkn_VpgUv_tUvqIYF7Qr_b_NoZlQssT",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -201,7 +201,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112597/SW1hZ2VfM19vN2U4eHY=/preview",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYNBD4t9xIH88F5kp-6Xo_ERhrWZ3BQaPlbz0hcbofxIMFLWq4",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -211,7 +211,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112601/SW1hZ2VfNF9qM3licnc=/preview",
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQqbJ8bwYXPNyfUnaY1PptuI8cOhF5tAwLltqshDEVRlwChfMM8",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -221,7 +221,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112608/SW1hZ2VfNV9qcGNocWQ=/preview",
+            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDp0lTPujNnq8dcIwgyOvwb4P81tWOmmtjaV_v9M7sIY5VdAwF",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -231,7 +231,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112614/SW1hZ2VfNl9rdWsxZnY=/preview",
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSwiBndajBvBYmTL9f0OWgp06ftXXEc-4EfLIlKh7Ddwe30larQ",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -241,7 +241,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112622/SW1hZ2VfN19tYTl3cXY=/preview",
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRA5iThT1QphH8F6G8yAB4oTxQxm9aYxzcJAATy17NCQYUJ8ug6",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -251,7 +251,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112630/SW1hZ2VfOF91MnhhNmw=/preview",
+            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTf98Bto619Z8OoKjRwTBpIFDLIL-kFQw4spscovwhUqNo1ts0t",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -261,7 +261,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112635/SW1hZ2VfOV9uYzQydGc=/preview",
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQg3u8pcoA1T9jp9USNRxLmPoKt2KcF0Z2DNgbL-PNJ3-PMXvHY",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -271,7 +271,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112643/SW1hZ2VfMTBfZm1oNWR1/preview",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvG62ecvpe0w5rAAWpzcLQ6YNkdRCMGf_DrEQ3YpROKEVy9Uue",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -281,7 +281,7 @@ export default {
         {
           class: "pa-0",
           image:
-            "https://res-console.cloudinary.com/dyo42vgdj/thumbnails/v1/image/upload/v1706112651/SW1hZ2VfMTFfeG5zdmZr/preview",
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSjql57y04axr20dD-zMGBNog6olFngsYrt9q1tcS5wdYboznTg",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
           price: "45.59",
@@ -290,13 +290,13 @@ export default {
         },
       ],
       products: [
-        { name: 'Product A', price: 30, description: 'Description A' },
-        { name: 'Product B', price: 20, description: 'Description B' },
-        { name: 'Product C', price: 25, description: 'Description C' },
+        { name: "Product A", price: 30, description: "Description A" },
+        { name: "Product B", price: 20, description: "Description B" },
+        { name: "Product C", price: 25, description: "Description C" },
       ],
-      selectedSortName: 'A-Z',
-      selectedSortPrice: 'Low High',
-      selectedSortDescription: 'A-Z',
+      selectedSortName: "A-Z",
+      selectedSortPrice: "Low High",
+      selectedSortDescription: "A-Z",
     };
   },
 
@@ -304,22 +304,26 @@ export default {
     applyFilters() {
       let filteredProducts = [...this.products];
 
-      if (this.selectedSortName === 'A-Z') {
+      if (this.selectedSortName === "A-Z") {
         filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
       } else {
         filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
       }
 
-      if (this.selectedSortPrice === 'Low High') {
+      if (this.selectedSortPrice === "Low High") {
         filteredProducts.sort((a, b) => a.price - b.price);
       } else {
         filteredProducts.sort((a, b) => b.price - a.price);
       }
 
-      if (this.selectedSortDescription === 'A-Z') {
-        filteredProducts.sort((a, b) => a.description.localeCompare(b.description));
+      if (this.selectedSortDescription === "A-Z") {
+        filteredProducts.sort((a, b) =>
+          a.description.localeCompare(b.description)
+        );
       } else {
-        filteredProducts.sort((a, b) => b.description.localeCompare(a.description));
+        filteredProducts.sort((a, b) =>
+          b.description.localeCompare(a.description)
+        );
       }
 
       console.log(filteredProducts);
