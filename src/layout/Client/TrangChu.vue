@@ -3,16 +3,16 @@
     <div class="py-6 px-6">
       <v-row class="">
         <v-col cols="12" sm="12" md="6" lg="2">
-          <v-select density="compact" label="Sort by"
-            :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']" variant="outlined"></v-select>
+          <v-select class="ma-2" label="ProdcutName" :items="['A-Z', 'Z-A']" v-model="selectedSortName"
+            @change="applyFilters" density="compact" variant="outlined"></v-select>
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="2">
-          <v-select density="compact" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
-            variant="outlined"></v-select>
+          <v-select class="ma-2" label="Price" :items="['Low High', 'High Low']" v-model="selectedSortPrice"
+            @change="applyFilters" density="compact" variant="outlined"></v-select>
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="2">
-          <v-select density="compact" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
-            variant="outlined"></v-select>
+          <v-select class="ma-2" label="Description" :items="['A-Z', 'Z-A']" v-model="selectedSortDescription"
+            @change="applyFilters" density="compact" variant="outlined"></v-select>
         </v-col>
         <v-col cols="12" sm="12" md="6" lg="6" class="text-right">
           <v-btn style="background-color: #bbccf6;color:#4d4d50" class="rounded-1 text-capitalize" variant="tonal">
@@ -65,13 +65,36 @@
         <v-card-text class="mt-n4 text-left" style="font-size: 14px; color: #787885" height="226px" width="21px">
           {{ mypham.reviews }}
         </v-card-text>
-        <v-card-actions>
-          <v-rating half-increments hover readonly model-value="3" :size="20" color="yellow-darken-3"
-            class="mb-1 mr-3"></v-rating>
-          4.5
+        <!-- <v-card-actions>
+          <v-col class="ml-3 mt-1" cols="5" style="display: flex;">
+            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small">mdi mdi-star-half</v-icon>
+            <span style="font-size: 14px;">{{ mypham.rating }}</span>
+          </v-col>
           <v-spacer></v-spacer>
           <v-btn prepend-icon="mdi-heart-outline" variant="outlined" class="text-capitalize" color="primary">Watch</v-btn>
-        </v-card-actions>
+        </v-card-actions> -->
+       <v-card-actions>
+        <v-row style="margin-top: 5px;" class="mb-4">
+          <v-col class="ml-3 mt-1" cols="5" style="display: flex;">
+            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star-half</v-icon>
+            <span style="font-size: 16px; margin-top: -4px;">4.05</span>
+          </v-col>
+          <v-col class="text-right" cols="6">
+            <v-btn class="text-capitalize" color="primary" size="small" prepend-icon="mdi-heart-outline"
+              variant="outlined" style="margin-top: -4px;">
+              Watch
+            </v-btn>
+          </v-col>
+        </v-row>
+       </v-card-actions>
       </v-card>
     </v-col>
   </v-row>
@@ -89,107 +112,114 @@ export default {
     return {
       myphams: [
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvKhndAo7d9ES6mwh8UBPF2CNx5VhmCWJATP3I6sCQHf68Fgng",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "45.50",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR1L1bo1AAurzmJXKQL_O_bHYAf9OWST8JY4FO9TVFX6-27EFBW",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "40.50",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.0"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOvXjSz7HW3IajCyvzFZkn_VpgUv_tUvqIYF7Qr_b_NoZlQssT",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "50.50",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "3.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYNBD4t9xIH88F5kp-6Xo_ERhrWZ3BQaPlbz0hcbofxIMFLWq4",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "30.30",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQqbJ8bwYXPNyfUnaY1PptuI8cOhF5tAwLltqshDEVRlwChfMM8",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "20.19",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDp0lTPujNnq8dcIwgyOvwb4P81tWOmmtjaV_v9M7sIY5VdAwF",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "55.59",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSwiBndajBvBYmTL9f0OWgp06ftXXEc-4EfLIlKh7Ddwe30larQ",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "45.99",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRA5iThT1QphH8F6G8yAB4oTxQxm9aYxzcJAATy17NCQYUJ8ug6",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "48.59",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTf98Bto619Z8OoKjRwTBpIFDLIL-kFQw4spscovwhUqNo1ts0t",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "44.22",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQg3u8pcoA1T9jp9USNRxLmPoKt2KcF0Z2DNgbL-PNJ3-PMXvHY",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "45.30",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvG62ecvpe0w5rAAWpzcLQ6YNkdRCMGf_DrEQ3YpROKEVy9Uue",
           title:
@@ -197,56 +227,22 @@ export default {
           price: "45.59",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
         {
-          class: "pa-0",
           image:
             "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSjql57y04axr20dD-zMGBNog6olFngsYrt9q1tcS5wdYboznTg",
           title:
             "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
+          price: "45.50",
           reviews:
             "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          rating: "4.5"
+
         },
       ],
-      products: [
-        { name: "Product A", price: 30, description: "Description A" },
-        { name: "Product B", price: 20, description: "Description B" },
-        { name: "Product C", price: 25, description: "Description C" },
-      ],
-      selectedSortName: "A-Z",
-      selectedSortPrice: "Low High",
-      selectedSortDescription: "A-Z",
     };
-  },
-
-  methods: {
-    applyFilters() {
-      let filteredProducts = [...this.products];
-
-      if (this.selectedSortName === "A-Z") {
-        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-      } else {
-        filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-      }
-
-      if (this.selectedSortPrice === "Low High") {
-        filteredProducts.sort((a, b) => a.price - b.price);
-      } else {
-        filteredProducts.sort((a, b) => b.price - a.price);
-      }
-
-      if (this.selectedSortDescription === "A-Z") {
-        filteredProducts.sort((a, b) =>
-          a.description.localeCompare(b.description)
-        );
-      } else {
-        filteredProducts.sort((a, b) =>
-          b.description.localeCompare(a.description)
-        );
-      }
-      console.log(filteredProducts);
-    },
   },
 };
 </script>
