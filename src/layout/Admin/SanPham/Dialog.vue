@@ -93,15 +93,8 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
-  <!-- <div id="app">
-    <form novalidate>
-      <input type="email" name="email" />
-      <button>Sign up for newsletter</button>
-    </form>
-  </div> -->
 </template>
 <script>
-
 export default {
   name: "DialogProduct",
   // components: {
@@ -115,4 +108,36 @@ export default {
   // },
 };
 </script>
+<!-- <script setup>
+import {ref} from 'vue'
+const dialog = ref(false);
+import { useForm } from 'vee-validate';
+import * as yup from 'yup';
+const regexPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+const props = defineProps(['close']);
+const emit = defineEmits();
+
+const { errors, handleSubmit,resetForm, defineField } = useForm({
+    validationSchema: yup.object({
+        tensanpham: yup.string().required('Vui lòng nhập tên sản phẩm'),
+        gia: yup.number('Dữ liệu nhập phải là số').required('Vui lòng nhập giá'),
+        soluong: yup.number('Dữ liệu nhập phải là số').required('Vui lòng nhập số lượng'),
+        anhsanpham: yup.string().required('Vui lòng nhập ảnh sản phẩm'),
+    }),
+});
+const [tensanpham, tensanphamAttrs] = defineField('tensanpham');
+const [gia, giaAttrs] = defineField('gia');
+const [soluong, soluongAttrs] = defineField('soluong');
+const [anhsanpham, anhsanphamAttrs] = defineField('anhsanpham');
+
+const handleClose = () => {
+    resetForm();
+    emit('close');
+};
+
+const createProduct = handleSubmit(values => {
+    alert(JSON.stringify(values, null, 2));
+    resetForm();
+});
+</script> -->
 <style></style>

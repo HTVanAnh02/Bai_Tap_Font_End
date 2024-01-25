@@ -6,7 +6,7 @@
           <v-row>
             <v-select
               class="ma-2"
-              label="Sort by Name"
+              label="ProdcutName"
               :items="['A-Z', 'Z-A']"
               v-model="selectedSortName"
               @change="applyFilters"
@@ -16,8 +16,8 @@
 
             <v-select
               class="ma-2"
-              label="Sort by Price"
-              :items="['Low to High', 'High to Low']"
+              label="Price"
+              :items="['Low High', 'High Low']"
               v-model="selectedSortPrice"
               @change="applyFilters"
               density="compact"
@@ -26,7 +26,7 @@
 
             <v-select
               class="ma-2"
-              label="Sort by Description"
+              label="Description"
               :items="['A-Z', 'Z-A']"
               v-model="selectedSortDescription"
               @change="applyFilters"
@@ -295,7 +295,7 @@ export default {
         { name: 'Product C', price: 25, description: 'Description C' },
       ],
       selectedSortName: 'A-Z',
-      selectedSortPrice: 'Low to High',
+      selectedSortPrice: 'Low High',
       selectedSortDescription: 'A-Z',
     };
   },
@@ -310,7 +310,7 @@ export default {
         filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
       }
 
-      if (this.selectedSortPrice === 'Low to High') {
+      if (this.selectedSortPrice === 'Low High') {
         filteredProducts.sort((a, b) => a.price - b.price);
       } else {
         filteredProducts.sort((a, b) => b.price - a.price);

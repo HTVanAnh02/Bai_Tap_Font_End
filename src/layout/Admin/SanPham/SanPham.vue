@@ -77,7 +77,7 @@
               <v-pagination
                 variant="text"
                 density="compact"
-                :length="10"
+                :length="5"
               ></v-pagination>
             </v-col>
           </v-row>
