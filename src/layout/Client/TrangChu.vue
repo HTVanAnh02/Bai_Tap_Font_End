@@ -156,14 +156,14 @@
     </v-col>
   </v-row>
   <v-space></v-space>
-  <Footer class="ma-10"></Footer>
+  <FooterClient class="ma-10"/>
 </template>
   <script>
-import Footer from "@/components/Client/Footer.vue";
+import FooterClient from "../../components/Client/FooterClient.vue";
 export default {
   name: "TrangChu",
   components: {
-    Footer,
+    FooterClient,
   },
   data() {
     return {
