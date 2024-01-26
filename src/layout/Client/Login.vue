@@ -61,7 +61,7 @@ const { value: email, errorMessage: emailError } = useField(
 
 const { value: password, errorMessage: passwordError } = useField(
   'password',
-  yup.string().required("Không được bỏ trống").min(6, "Chưa đủ 6 ký tự").max(64,"Mật khẩu không vượt quá 64 ký tự")
+  yup.string().required("Không được bỏ trống").min(6, "Mật Khẩu không định dạng").max(64,"Mật khẩu không vượt quá 64 ký tự")
   .matches(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/,
     "Mật khẩu phải chứa ít nhất một chữ hoa, một chữ thường và một số"
