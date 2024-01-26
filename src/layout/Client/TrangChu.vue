@@ -189,42 +189,6 @@ export default {
       Myphams:[]
     };
   },
-  computed: {
-  sortedAndFilteredMyphams () {
-    // tạo một biến để lưu trữ mảng đã được lọc theo tiêu đề
-    let result = this.Myphams.filter(mypham => {
-      // nếu không chọn tiêu đề nào, trả về tất cả các đối tượng
-      if (this.SortCategory === '') {
-        return true;
-      }
-      // nếu chọn tiêu đề là "Son", trả về những đối tượng có title bắt đầu bằng "Son"
-      if (this.SortCategory === 'Son') {
-        return mypham.title.localeCompare('Son');
-      }
-      // nếu chọn tiêu đề là "Kem Nền", trả về những đối tượng có title bắt đầu bằng "Kem Nền"
-      if (this.SortCategory === 'Kem Nền') {
-        return mypham.title.localeCompare('Kem Nền');
-      }
-    });
-    // sắp xếp mảng đã được lọc theo giá
-    result.sort((a, b) => {
-      // nếu không chọn giá nào, trả về mảng không thay đổi
-      if (this.SortPrice === '') {
-        return 0;
-      }
-      // nếu chọn giá tăng dần, trả về kết quả so sánh giá của hai đối tượng
-      if (this.SortPrice === 'Price ↑') {
-        return a.price - b.price;
-      }
-      // nếu chọn giá giảm dần, trả về kết quả so sánh ngược lại giá của hai đối tượng
-      if (this.SortPrice === 'Price ↓') {
-        return b.price - a.price;
-      }
-    });
-    // trả về mảng đã được lọc và sắp xếp
-    return result;
-  }
-},
 methods: {
   filterLoaiSanPham(value)
   {
