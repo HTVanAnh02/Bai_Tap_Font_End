@@ -1,39 +1,39 @@
 <template>
   <div>
-    <div class="py-6 px-6">
-      <v-row class="">
-        <v-col cols="12" sm="12" md="6" lg="2">
-          <v-select class="ma-2" label="ProdcutName" :items="['A-Z', 'Z-A']" v-model="selectedSortName"
-            @change="applyFilters" density="compact" variant="outlined"></v-select>
-        </v-col>
-        <v-col cols="12" sm="12" md="6" lg="2">
-          <v-select class="ma-2" label="Price" :items="['Low High', 'High Low']" v-model="selectedSortPrice"
-            @change="applyFilters" density="compact" variant="outlined"></v-select>
-        </v-col>
-        <v-col cols="12" sm="12" md="6" lg="2">
-          <v-select class="ma-2" label="Description" :items="['A-Z', 'Z-A']" v-model="selectedSortDescription"
-            @change="applyFilters" density="compact" variant="outlined"></v-select>
-        </v-col>
-        <v-col cols="12" sm="12" md="6" lg="6" class="text-right">
-          <v-btn style="background-color: #bbccf6;color:#4d4d50" class="rounded-1 text-capitalize" variant="tonal">
-            Show all
-          </v-btn>
-          <v-btn style="font-weight: bold;color: #2264D1;" bg-color="white" class="rounded-1 text-capitalize"
-            variant="elevated">
-            Action
-          </v-btn>
-          <v-btn style="background-color: #bbccf6;color:#4d4d50" class="rounded-1 text-capitalize" variant="tonal">
-            Buy now
-          </v-btn>
-          <v-btn style="background-color: #adc4fe" class="ml-5" ariant="tonal">
-            <v-icon>mdi mdi-menu</v-icon>
-          </v-btn>
-          <v-btn class="mr-5" variant="elevated">
-            <v-icon style="color: #0c5bda;">mdi mdi-microsoft-windows</v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </div>
+    <v-row class="ml-3 mt-3">
+      <v-col cols="4" sm="6" md="6" lg="2">
+        <v-select v-model="SortCategory" density="compact" label="Name" :items="['Son', 'Kem Nền','All']" variant="outlined"
+          @change="applyFilters"></v-select>
+      </v-col>
+      <v-col cols="4" sm="6" md="6" lg="2">
+        <v-select v-model="SortPrice" label="Price" density="compact" :items="['Price ↑', 'Price ↓']" variant="outlined"
+          @change="applyFilters"></v-select>
+      </v-col>
+      <v-col cols="4" sm="6" md="6" lg="2">
+        <v-select v-model="SortAnotherPrice" label="Price" density="compact" :items="['Price ↑', 'Price ↓']"
+          variant="outlined" @change="applyFilters"></v-select>
+      </v-col>
+      <v-col cols="12" sm="6" md="6" lg="6" class="text-right">
+        <v-btn style="background-color: #ebf2ff; font-size: 14px; color:#4d4d50" class="rounded-1 text-capitalize"
+          variant="tonal">
+          Show all
+        </v-btn>
+        <v-btn style="font-weight: bold;font-size: 14px; color: #2264D1;" bg-color="white"
+          class="rounded-1 text-capitalize" variant="elevated">
+          Action
+        </v-btn>
+        <v-btn style="background-color: #ebf2ff;font-size: 14px; color:#4d4d50" class="rounded-1 text-capitalize"
+          variant="tonal">
+          Buy now
+        </v-btn>
+        <v-btn style="background-color: #ebf2ff" class="ml-5" ariant="tonal">
+          <v-icon>mdi mdi-menu</v-icon>
+        </v-btn>
+        <v-btn class="mr-5" variant="elevated">
+          <v-icon style="color: #0c5bda;">mdi-microsoft</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
     <div>
       <v-row class="px-6">
         <v-chip-group>
@@ -51,50 +51,38 @@
     </div>
   </div>
   <v-row>
-    <v-col cols="12" sm="12" md="6" lg="3" v-for="(mypham, i) in myphams" :key="i">
-      <v-card height="472px" with="258px" align="center" variant="flat" hover>
-        <v-img :src="mypham.image" width="227" height="224" contain class="flex-grow-1" style="object-fit: cover"></v-img>
-        <v-card-text class="mt-n4 text-left" style="font-size: 16px; color: #19191d" height="226px" with="74px">
+    <v-col cols="12" sm="12" md="6" lg="3" v-for="(mypham, i) in Myphams" :key="i">
+      <v-card class="custom-shadow" height="472px" with="258px" align="center" variant="flat" hover rounded="lg">
+        <v-img :src="mypham.image" width="227" height="224" contain class="flex-grow-1  margin-bottom: 10px"
+          style="object-fit: cover"></v-img>
+        <v-card-text class="mt-1 text-left" style="font-size: 16px; color: #19191d">
           {{ mypham.title }}
         </v-card-text>
-        <v-card-text class="mt-n4 text-left" height="226px" with="36px">
-          <v-card-item>
-            <strong style="font-size: 24px"> ${{ mypham.price }} </strong>
-          </v-card-item>
+        <v-card-text class="mt-n4 text-left " style="font-size: 14px; font-weight: 700;padding: auto; color: #040404"
+          height="226px" width="21px">
+          <p style="font-size: 24px ;margin: left 20px;"> ${{ mypham.price }} </p>
         </v-card-text>
-        <v-card-text class="mt-n4 text-left" style="font-size: 14px; color: #787885" height="226px" width="21px">
+        <v-card-text class="mt-n2 text-left" style="font-size: 14px; color: #787885">
           {{ mypham.reviews }}
         </v-card-text>
-        <!-- <v-card-actions>
-          <v-col class="ml-3 mt-1" cols="5" style="display: flex;">
-            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small">mdi mdi-star-half</v-icon>
-            <span style="font-size: 14px;">{{ mypham.rating }}</span>
-          </v-col>
-          <v-spacer></v-spacer>
-          <v-btn prepend-icon="mdi-heart-outline" variant="outlined" class="text-capitalize" color="primary">Watch</v-btn>
-        </v-card-actions> -->
-       <v-card-actions>
-        <v-row style="margin-top: 5px;" class="mb-4">
-          <v-col class="ml-3 mt-1" cols="5" style="display: flex;">
-            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
-            <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star-half</v-icon>
-            <span style="font-size: 16px; margin-top: -4px;">4.05</span>
-          </v-col>
-          <v-col class="text-right" cols="6">
-            <v-btn class="text-capitalize" color="primary" size="small" prepend-icon="mdi-heart-outline"
-              variant="outlined" style="margin-top: -4px;">
-              Watch
-            </v-btn>
-          </v-col>
-        </v-row>
-       </v-card-actions>
+        <v-card-actions>
+          <v-row class="mt-n4">
+            <v-col class="ml-3 mt-1" cols="5" style="display: flex;">
+              <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+              <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+              <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+              <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+              <v-icon color="#FB8200" size="x-small" style="font-size: 16px;">mdi mdi-star</v-icon>
+              <span style="font-size: 16px; margin-top: -4px;">{{ mypham.rating }}</span>
+            </v-col>
+            <v-col class="text-right" cols="6">
+              <v-btn class="text-capitalize" color="primary" size="small" prepend-icon="mdi-heart-outline"
+                variant="outlined" style="margin-top: -4px;">
+                Watch
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card-actions>
       </v-card>
     </v-col>
   </v-row>
@@ -110,140 +98,171 @@ export default {
   },
   data() {
     return {
-      myphams: [
+      SortCategory: 'All',
+      SortPrice: '',
+      filteredMyphams: [
         {
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvKhndAo7d9ES6mwh8UBPF2CNx5VhmCWJATP3I6sCQHf68Fgng",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.50",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-        },
-        {
-          image:
-            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR1L1bo1AAurzmJXKQL_O_bHYAf9OWST8JY4FO9TVFX6-27EFBW",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "40.50",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.0"
-
-        },
-        {
-          image:
-            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTOvXjSz7HW3IajCyvzFZkn_VpgUv_tUvqIYF7Qr_b_NoZlQssT",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "50.50",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "3.5"
-
-        },
-        {
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYNBD4t9xIH88F5kp-6Xo_ERhrWZ3BQaPlbz0hcbofxIMFLWq4",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "30.30",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
+          title: "Son Thỏi MAC Mịn Lì 646 Marrakesh - Đỏ Đất 3g Matte Lipstick",
+          price: "50",
+          reviews: "Son môi MAC Matte Lipstick là một trong những dòng son mang tính biểu tượng đã làm nên tên tuổi của M·A·C .",
           rating: "5"
-
         },
         {
-          image:
-            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQqbJ8bwYXPNyfUnaY1PptuI8cOhF5tAwLltqshDEVRlwChfMM8",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "20.19",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_100630045_310523-1685529534_img_358x358_843626_fit_center.jpg",
+          title: "Kem Nền MAC Lâu Trôi NC20 Màu Be Vàng Cho Da Sáng 30ml",
+          price: "100",
+          reviews: "Kem Nền Lâu Trôi MAC Studio Fix Fluid SPF 15 là dòng sản phẩm kem nền bán chạy nhất của thương hiệu mỹ phẩm trang điểm chuyên nghiệp M·A·C.",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDp0lTPujNnq8dcIwgyOvwb4P81tWOmmtjaV_v9M7sIY5VdAwF",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "55.59",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
+          title: "Son Thỏi MAC Mịn Lì 646 Marrakesh - Đỏ Đất 3g Matte Lipstick",
+          price: "50",
+          reviews: "Son môi MAC Matte Lipstick là một trong những dòng son mang tính biểu tượng đã làm nên tên tuổi của M·A·C .",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSwiBndajBvBYmTL9f0OWgp06ftXXEc-4EfLIlKh7Ddwe30larQ",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.99",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_100630045_310523-1685529534_img_358x358_843626_fit_center.jpg",
+          title: "Kem Nền MAC Lâu Trôi NC20 Màu Be Vàng Cho Da Sáng 30ml",
+          price: "100",
+          reviews: "Kem Nền Lâu Trôi MAC Studio Fix Fluid SPF 15 là dòng sản phẩm kem nền bán chạy nhất của thương hiệu mỹ phẩm trang điểm chuyên nghiệp M·A·C.",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRA5iThT1QphH8F6G8yAB4oTxQxm9aYxzcJAATy17NCQYUJ8ug6",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "48.59",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
+          title: "Son Thỏi MAC Mịn Lì 646 Marrakesh - Đỏ Đất 3g Matte Lipstick",
+          price: "50",
+          reviews: "Son môi MAC Matte Lipstick là một trong những dòng son mang tính biểu tượng đã làm nên tên tuổi của M·A·C .",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTf98Bto619Z8OoKjRwTBpIFDLIL-kFQw4spscovwhUqNo1ts0t",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "44.22",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_100630045_310523-1685529534_img_358x358_843626_fit_center.jpg",
+          title: "Kem Nền MAC Lâu Trôi NC20 Màu Be Vàng Cho Da Sáng 30ml",
+          price: "100",
+          reviews: "Kem Nền Lâu Trôi MAC Studio Fix Fluid SPF 15 là dòng sản phẩm kem nền bán chạy nhất của thương hiệu mỹ phẩm trang điểm chuyên nghiệp M·A·C.",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQg3u8pcoA1T9jp9USNRxLmPoKt2KcF0Z2DNgbL-PNJ3-PMXvHY",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.30",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
+          title: "Son Thỏi MAC Mịn Lì 646 Marrakesh - Đỏ Đất 3g Matte Lipstick",
+          price: "50",
+          reviews: "Son môi MAC Matte Lipstick là một trong những dòng son mang tính biểu tượng đã làm nên tên tuổi của M·A·C .",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvG62ecvpe0w5rAAWpzcLQ6YNkdRCMGf_DrEQ3YpROKEVy9Uue",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.59",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_100630045_310523-1685529534_img_358x358_843626_fit_center.jpg",
+          title: "Kem Nền MAC Lâu Trôi NC20 Màu Be Vàng Cho Da Sáng 30ml",
+          price: "100",
+          reviews: "Kem Nền Lâu Trôi MAC Studio Fix Fluid SPF 15 là dòng sản phẩm kem nền bán chạy nhất của thương hiệu mỹ phẩm trang điểm chuyên nghiệp M·A·C.",
+          rating: "5"
         },
         {
-          image:
-            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSjql57y04axr20dD-zMGBNog6olFngsYrt9q1tcS5wdYboznTg",
-          title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "45.50",
-          reviews:
-            "Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else Eligible for Shipping To Mars or somewhere else",
-          rating: "4.5"
-
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
+          title: "Son Thỏi MAC Mịn Lì 646 Marrakesh - Đỏ Đất 3g Matte Lipstick",
+          price: "50",
+          reviews: "Son môi MAC Matte Lipstick là một trong những dòng son mang tính biểu tượng đã làm nên tên tuổi của M·A·C .",
+          rating: "5"
+        },
+        {
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_100630045_310523-1685529534_img_358x358_843626_fit_center.jpg",
+          title: "Kem Nền MAC Lâu Trôi NC20 Màu Be Vàng Cho Da Sáng 30ml",
+          price: "100",
+          reviews: "Kem Nền Lâu Trôi MAC Studio Fix Fluid SPF 15 là dòng sản phẩm kem nền bán chạy nhất của thương hiệu mỹ phẩm trang điểm chuyên nghiệp M·A·C.",
+          rating: "5"
+        },
+        {
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
+          title: "Son Thỏi MAC Mịn Lì 646 Marrakesh - Đỏ Đất 3g Matte Lipstick",
+          price: "50",
+          reviews: "Son môi MAC Matte Lipstick là một trong những dòng son mang tính biểu tượng đã làm nên tên tuổi của M·A·C .",
+          rating: "5"
+        },
+        {
+          image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_100630045_310523-1685529534_img_358x358_843626_fit_center.jpg",
+          title: "Kem Nền MAC Lâu Trôi NC20 Màu Be Vàng Cho Da Sáng 30ml",
+          price: "100",
+          reviews: "Kem Nền Lâu Trôi MAC Studio Fix Fluid SPF 15 là dòng sản phẩm kem nền bán chạy nhất của thương hiệu mỹ phẩm trang điểm chuyên nghiệp M·A·C.",
+          rating: "5"
         },
       ],
+      Myphams:[]
     };
   },
+  computed: {
+  sortedAndFilteredMyphams () {
+    // tạo một biến để lưu trữ mảng đã được lọc theo tiêu đề
+    let result = this.Myphams.filter(mypham => {
+      // nếu không chọn tiêu đề nào, trả về tất cả các đối tượng
+      if (this.SortCategory === '') {
+        return true;
+      }
+      // nếu chọn tiêu đề là "Son", trả về những đối tượng có title bắt đầu bằng "Son"
+      if (this.SortCategory === 'Son') {
+        return mypham.title.localeCompare('Son');
+      }
+      // nếu chọn tiêu đề là "Kem Nền", trả về những đối tượng có title bắt đầu bằng "Kem Nền"
+      if (this.SortCategory === 'Kem Nền') {
+        return mypham.title.localeCompare('Kem Nền');
+      }
+    });
+    // sắp xếp mảng đã được lọc theo giá
+    result.sort((a, b) => {
+      // nếu không chọn giá nào, trả về mảng không thay đổi
+      if (this.SortPrice === '') {
+        return 0;
+      }
+      // nếu chọn giá tăng dần, trả về kết quả so sánh giá của hai đối tượng
+      if (this.SortPrice === 'Price ↑') {
+        return a.price - b.price;
+      }
+      // nếu chọn giá giảm dần, trả về kết quả so sánh ngược lại giá của hai đối tượng
+      if (this.SortPrice === 'Price ↓') {
+        return b.price - a.price;
+      }
+    });
+    // trả về mảng đã được lọc và sắp xếp
+    return result;
+  }
+},
+methods: {
+  filterLoaiSanPham(value)
+  {
+    if(value==="All")
+    {
+      this.Myphams=this.filteredMyphams
+      return
+    }
+    this.Myphams=this.filteredMyphams.filter(item=>item.title.includes(value))
+  },
+  filterPrice()
+  {
+    let filtered = [...this.Myphams]; 
+
+    if (this.SortPrice === 'Price ↑') {
+      this.Myphams = filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      
+    } else {
+      this.Myphams = filtered.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+    }
+  }
+},
+watch:{
+  SortCategory(newval)
+  {
+    // alert(OldVal+"   "+newval)
+    this.filterLoaiSanPham(newval)
+  },
+  SortPrice(newval)
+  {
+    // alert(OldVal+"   "+newval)
+    this.filterPrice(newval)
+  }
+},
+created()
+{
+  this.Myphams=this.filteredMyphams;
+}
+
 };
 </script>
-  

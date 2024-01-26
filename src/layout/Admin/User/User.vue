@@ -16,7 +16,7 @@
       <v-col cols="9" class="text-right">
         <v-btn
           @click="showDialog = true"
-          color="primary"
+          color="#0F60FF"
           prepend-icon="mdi mdi-plus"
           class="text-uppercase"
           >Tạo Mới</v-btn
@@ -53,8 +53,8 @@
                   0328301422
                 </td>
                 <td class="text-center">
-                  <v-btn variant="text"><v-icon>mdi-pencil</v-icon></v-btn>
-                  <v-btn variant="text"><v-icon>mdi-trash-can-outline</v-icon></v-btn>
+                  <v-btn variant="text"><v-icon> mdi mdi-square-edit-outline</v-icon></v-btn>
+                  <v-btn variant="text"><v-icon> mdi mdi-trash-can-outline</v-icon></v-btn>
                 </td>
               </tr>
             </tbody>

@@ -2,25 +2,13 @@
   <v-container>
     <v-row>
       <v-col cols="3">
-        <v-text-field
-          style="background-color: white"
-          density="compact"
-          variant="outlined"
-          label="Tìm kiếm"
-          append-inner-icon="mdi mdi-magnify"
-          single-line
-          hide-details
-          class="mr-2"
-        ></v-text-field>
+        <v-text-field style="background-color: white" density="compact" variant="outlined" label="Tìm kiếm"
+          append-inner-icon="mdi mdi-magnify" single-line hide-details class="mr-2  elevation-2"></v-text-field>
       </v-col>
+
       <v-col cols="9" class="text-right">
-        <v-btn
-          @click="showDialog = true"
-          color="primary"
-          prepend-icon="mdi mdi-plus"
-          class="text-uppercase"
-          >Tạo Mới</v-btn
-        >
+        <v-btn @click="showDialog = true" prepend-icon="mdi mdi-plus" color="#0F60FF" class="text-uppercase">Tạo
+          Mới</v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -44,17 +32,11 @@
                 <td>100</td>
                 <td>Son dưỡng</td>
                 <td>
-                  <v-img
-                    width="60"
-                    height="50"
-                    src="@/assets/img/anh.jpg"
-                  ></v-img>
+                  <v-img class="text-left" width="60" height="50" src="@/assets/img/anh.jpg"></v-img>
                 </td>
                 <td class="text-center">
-                  <v-btn variant="text"><v-icon>mdi-pencil</v-icon></v-btn>
-                  <v-btn variant="text"
-                    ><v-icon>mdi-trash-can-outline</v-icon></v-btn
-                  >
+                  <v-btn variant="text"><v-icon> mdi mdi-square-edit-outline</v-icon></v-btn>
+                  <v-btn variant="text"><v-icon> mdi mdi-trash-can-outline</v-icon></v-btn>
                 </td>
               </tr>
             </tbody>
@@ -64,21 +46,13 @@
               <v-row>
                 <p class="mt-5 opacity">Showing</p>
                 <v-col cols="2">
-                  <v-select
-                    density="compact"
-                    :items="['10', '20', '25', '30', 'All']"
-                    variant="outlined"
-                  ></v-select>
+                  <v-select density="compact" :items="['10', '20', '25', '30', 'All']" variant="outlined"></v-select>
                 </v-col>
                 <p class="mt-5 opacity">of 50</p>
               </v-row>
             </v-col>
             <v-col cols="4" class="text-right">
-              <v-pagination
-                variant="text"
-                density="compact"
-                :length="5"
-              ></v-pagination>
+              <v-pagination variant="text" density="compact" :length="5"></v-pagination>
             </v-col>
           </v-row>
         </v-card>
@@ -103,4 +77,4 @@ export default {
   },
 };
 </script>
-  <style></style>
+<style></style>
