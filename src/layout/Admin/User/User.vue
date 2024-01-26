@@ -29,12 +29,12 @@
           <v-table density="compact">
             <thead>
               <tr>
-                <th class="text-left">Avatar</th>
-                <th class="text-left">Tên Người Dùng</th>
-                <th class="text-left">Email</th>
-                <th class="text-left">Ngày Sinh</th>
-                <th class="text-left">Số Điện Thoại</th>
-                <th class="text-center">Hành Động</th>
+                <th class="text-left mr-4" style="opacity: 0.5;"><p class="ml-3">Avatar</p></th>
+                <th class="text-left" style="opacity: 0.5;">Tên Người Dùng</th>
+                <th class="text-left" style="opacity: 0.5;">Email</th>
+                <th class="text-left" style="opacity: 0.5;">Ngày Sinh</th>
+                <th class="text-left" style="opacity: 0.5;">Số Điện Thoại</th>
+                <th class="text-center headline" style="opacity: 0.5;" >Hành Động</th>
               </tr>
             </thead>
             <tbody>
@@ -46,10 +46,10 @@
                     src="@/assets/img/anh.jpg"
                   ></v-img>
                 </td>
-                <td>Hoàng Thị Vân Anh{{ i }}</td>
-                <td>hoangthivananh22122002@gmail.com</td>
-                <td>22/12/2002</td>
-                <td>
+                <td class="font-weight-bold" style="color: black;">Hoàng Thị Vân Anh{{ i }}</td>
+                <td style="color: black;">hoangthivananh22122002@gmail.com</td>
+                <td style="color: black;">22/12/2002</td>
+                <td style="color: black;">
                   0328301422
                 </td>
                 <td class="text-center">
@@ -62,7 +62,7 @@
           <v-row class="ma-2">
             <v-col cols="8">
               <v-row>
-                <p class="mt-5 opacity">Showing</p>
+                <p class="mt-5 opacity" style="opacity: 0.5;">Showing</p>
                 <v-col cols="2">
                   <v-select
                     density="compact"
@@ -70,7 +70,7 @@
                     variant="outlined"
                   ></v-select>
                 </v-col>
-                <p class="mt-5 opacity">of 50</p>
+                <p class="mt-5 opacity" style="opacity: 0.5;">of 50</p>
               </v-row>
             </v-col>
             <v-col cols="4" class="text-right">
@@ -78,6 +78,8 @@
                 variant="text"
                 density="compact"
                 :length="5"
+                active-color="#0F60FF"
+                
               ></v-pagination>
             </v-col>
           </v-row>
@@ -105,4 +107,11 @@ export default {
     
 };
 </script>
-  <style></style>
+  <style>
+table th {
+    color: black;
+    font-weight: bold;
+}
+table td {
+    color: #8B909A;
+}</style>
