@@ -1,143 +1,110 @@
 <template>
   <v-dialog max-width="500px">
-    <v-card>
-      <v-card-title style="font-weight: bold">
-        <h4>Tạo mới sản phẩm</h4>
-      </v-card-title>
-      <v-container style="background-color: rgb(247, 247, 247)">
-        <v-row>
-          <v-col cols="12" style="font-size: 13px">
-            <div class="d-flex mb-2">
-              <p>Tên sản phẩm</p>
-              <span class="ml-1" style="color: blue">*</span>
-            </div>
-            <v-text-field
-              style="background-color: white"
-              label="Nhập tên sản phẩm"
-              density="compact"
-              single-line
-              hide-details
-              variant="outlined"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" style="font-size: 13px">
-            <div class="d-flex mb-2">
-              <p>Giá</p>
-              <span class="ml-1" style="color: blue">*</span>
-            </div>
-            <v-text-field
-              style="background-color: white"
-              label="Nhập giá sản phẩm"
-              density="compact"
-              single-line
-              hide-details
-              variant="outlined"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" style="font-size: 13px">
-            <div class="d-flex mb-2">
-              <p>Số lượng</p>
-              <span class="ml-1" style="color: blue">*</span>
-            </div>
-            <v-text-field
-              style="background-color: white"
-              label="Nhập số lượng sản phẩm"
-              density="compact"
-              single-line
-              hide-details
-              variant="outlined"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" style="font-size: 13px">
-            <p>Mô tả</p>
-            <v-textarea
-              style="background-color: white"
-              label="Nhập mô tả"
-              density="compact"
-              single-line
-              hide-details
-              variant="outlined"
-            ></v-textarea>
-          </v-col>
-          <v-col cols="12" style="font-size: 13px">
-            <div class="d-flex mb-2">
-              <p>Ảnh sản phẩm</p>
-              <span class="ml-1" style="color: blue">*</span>
-            </div>
-            <v-text-field
-              placeholder="Nhập link ảnh sản phẩm"
-              style="background-color: white"
-              density="compact"
-              single-line
-              hide-details
-              variant="outlined"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn
-          @click="this.$emit('close')"
-          text="Hủy"
-          style="border: 1px solid #ccc"
-          width="70"
-        ></v-btn>
-        <v-btn
-          text="Tạo mới"
-          color="white"
-          class="mr-2"
-          style="background-color: #0f60ff"
-          width="110"
-        ></v-btn>
-      </v-card-actions>
-    </v-card>
+    <v-form @submit.prevent="login">
+      <v-card>
+        <v-card-title style="font-weight: bold;">
+          <h4>Tạo mới</h4>
+        </v-card-title>
+        <v-container style="background-color: rgb(247, 247, 247);">
+          <v-row>
+            <v-col cols="12" style="font-size: 13px;">
+              <span>Tên sản phẩm </span> <span class="text-blue ml-2">*</span>
+              <v-text-field v-model="name" placeholder="Nhập tên sản phẩm" :error-messages="nameError"
+                style="background-color: white;" density="compact" single-line hide-details
+                variant="outlined"></v-text-field>
+              <span style="color:red">{{ nameError }}</span>
+            </v-col>
+            <v-col cols="12" style="font-size: 13px;">
+              <span>Giá</span><span class="text-blue ml-2">*</span>
+              <v-text-field v-model="price" placeholder="Nhập giá sản phẩm" :error-messages="priceError" required
+                style="background-color: white;" density="compact" single-line hide-details
+                variant="outlined"></v-text-field>
+              <span style="color:red">{{ priceError }}</span>
+            </v-col>
+            <v-col cols="12" style="font-size: 13px;">
+              <span>Số lượng</span><span class="text-blue ml-2">*</span>
+              <v-text-field v-model="quantity" placeholder="Nhập số lượng sản phẩm" :error-messages="quantityError"
+                required style="background-color: white;" density="compact" single-line hide-details
+                variant="outlined"></v-text-field>
+              <span style="color:red">{{ quantityError }}</span>
+            </v-col>
+            <v-col cols="12" style="font-size: 13px;">
+              <span>Mô tả</span><span class="text-blue ml-2">*</span>
+              <v-textarea v-model="description" placeholder="Nhập mô tả" :error-messages="descriptionError" required
+                style="background-color: white;" density="compact" single-line hide-details
+                variant="outlined"></v-textarea>
+              <span style="color:red">{{ descriptionError }}</span>
+            </v-col>
+            <v-col cols="12" style="font-size: 13px;">
+              <span>Ảnh sản phẩm</span><span class="text-blue ml-2">*</span>
+              <v-text-field placeholder="Nhập link ảnh" style="background-color: white;" density="compact" single-line
+                hide-details variant="outlined"></v-text-field>
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-card-actions class="pr-4">
+          <v-spacer></v-spacer>
+          <v-btn @click="close" class="text-capitalize" text="Hủy"></v-btn>
+          <v-btn class="text-capitalize" variant="elevated" color="#0F60FF">Tạo<span
+              class="text-lowercase">mới</span></v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-form>
   </v-dialog>
 </template>
 <script>
 export default {
   name: "DialogProduct",
-  // components: {
-  //   Form,
-  //   Field,
-  // },
-  // methods: {
-  //   onSubmit() {
-  //     console.log('Submitting :(');
-  //   },
-  // },
 };
 </script>
-<!-- <script setup>
-import {ref} from 'vue'
-const dialog = ref(false);
-import { useForm } from 'vee-validate';
+<script setup>
+import { useForm, useField } from 'vee-validate';
 import * as yup from 'yup';
-const regexPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
-const props = defineProps(['close']);
-const emit = defineEmits();
+// import { ref } from 'vue';
 
-const { errors, handleSubmit,resetForm, defineField } = useForm({
-    validationSchema: yup.object({
-        tensanpham: yup.string().required('Vui lòng nhập tên sản phẩm'),
-        gia: yup.number('Dữ liệu nhập phải là số').required('Vui lòng nhập giá'),
-        soluong: yup.number('Dữ liệu nhập phải là số').required('Vui lòng nhập số lượng'),
-        anhsanpham: yup.string().required('Vui lòng nhập ảnh sản phẩm'),
-    }),
+
+const { handleSubmit, resetForm } = useForm();
+
+const { value: name, errorMessage: nameError } = useField(
+  'name',
+  yup
+    .string()
+    .required('Không được bỏ trống')
+    .matches(/^[a-zA-Z0-9\s]+$/, 'Tên sản phẩm chỉ được chứa ký tự chữ cái, số và khoảng trắng')
+);
+
+
+const { value: price, errorMessage: priceError } = useField(
+  'price',
+  yup
+    .number()
+    .required('Không được bỏ trống')
+    .min(0, 'Giá không được nhỏ hơn 0')
+    .typeError('Giá phải là một số')
+);
+
+const { value: quantity, errorMessage: quantityError } = useField(
+  'quantity',
+  yup
+    .number()
+    .required('Không được bỏ trống')
+    .integer('Số lượng phải là một số nguyên')
+    .min(0, 'Số lượng không được nhỏ hơn 0')
+    .typeError('Số lượng phải là một số')
+);
+const { value: description, errorMessage: descriptionError } = useField(
+  'description',
+  yup
+    .string()
+    .required('Không được bỏ trống')
+    .min(10, 'Mô tả phải có ít nhất 10 ký tự')
+    .max(500, 'Mô tả không được quá 500 ký tự')
+);
+const login = handleSubmit(async () => {
+  alert(name.value + "   " + price.value)
 });
-const [tensanpham, tensanphamAttrs] = defineField('tensanpham');
-const [gia, giaAttrs] = defineField('gia');
-const [soluong, soluongAttrs] = defineField('soluong');
-const [anhsanpham, anhsanphamAttrs] = defineField('anhsanpham');
-
-const handleClose = () => {
-    resetForm();
-    emit('close');
-};
-
-const createProduct = handleSubmit(values => {
-    alert(JSON.stringify(values, null, 2));
-    resetForm();
-});
-</script> -->
+const close = () => {
+  resetForm()
+}
+</script>
 <style></style>
