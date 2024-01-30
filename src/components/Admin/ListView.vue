@@ -3,12 +3,12 @@
     <v-toolbar style="background-color: white">
       <v-row>
         <v-col cols="9">
-          <v-img 
+          <v-img class="ml-4"
             src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1705460127/logo1_adshdl.png"
           ></v-img>
         </v-col>
         <v-col cols="3" class="text-right">
-          <v-icon>mdi-backburger</v-icon>
+          <v-icon style="color: gray;">mdi-backburger</v-icon>
         </v-col>
       </v-row>
     </v-toolbar>
@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       links: [
-        { icon: " mdi-newspaper", text: "Sản phẩm", link: "/admin/SanPham",title:"Danh sách sản phẩm"},
+        { icon: "mdi-package-variant", text: "Sản phẩm", link: "/admin/SanPham",title:"Danh sách sản phẩm"},
         { icon: "mdi-account-multiple", text: "User", link: "/admin/User",title:"Danh sách người dùng"},
       ],
     };

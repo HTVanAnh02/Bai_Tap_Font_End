@@ -6,7 +6,7 @@
           @change="applyFilters"></v-select>
       </v-col>
       <v-col cols="4" sm="6" md="6" lg="2">
-        <v-select v-model="SortPrice" label="Price" density="compact" :items="['Price ↑', 'Price ↓']" variant="outlined"
+        <v-select v-model="SortPrice" density="compact" :items="['Price ↑', 'Price ↓']" variant="outlined"
           @change="applyFilters"></v-select>
       </v-col>
       <v-col cols="4" sm="6" md="6" lg="2">
@@ -99,7 +99,7 @@ export default {
   data() {
     return {
       SortCategory: 'All',
-      SortPrice: '',
+      SortPrice: 'Price ↑',
       filteredMyphams: [
         {
           image: "https://media.hcdn.vn/catalog/product/t/o/top_fb_ads_210000069_310523-1685529439_img_358x358_843626_fit_center.jpg",
@@ -214,12 +214,10 @@ methods: {
 watch:{
   SortCategory(newval)
   {
-    // alert(OldVal+"   "+newval)
     this.filterLoaiSanPham(newval)
   },
   SortPrice(newval)
   {
-    // alert(OldVal+"   "+newval)
     this.filterPrice(newval)
   }
 },

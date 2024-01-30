@@ -16,10 +16,10 @@
               <v-text-field v-model="password" :error-messages="passwordError" required
                   :append-inner-icon="visible ? 'mdi-eye' : 'mdi-eye-off'" :type="visible ? 'text' : 'password'"
                   density="compact" placeholder="Nhập mật khẩu" variant="outlined"
-                  @click:append-inner="visible = !visible"></v-text-field>
+                  @click:append-inner="visible = !visible" :append-icon-size="15"></v-text-field>
               <div class="d-flex justify-space-between align-center">
                   <v-checkbox v-model="terms" color="secondary" label="Ghi nhớ Đăng nhập"></v-checkbox>
-                  <a class="text-caption text-decoration-none text-blue mb-6">
+                  <a class="text-caption text-decoration-none text-blue mb-6" style="font-size: 14px;">
                       Quên mật khẩu?</a>
               </div>
               <v-btn type="submit" block class="mb-8" color="#0F60FF" size="large">
